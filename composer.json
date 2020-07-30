@@ -52,7 +52,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ManuelOjeda\\Rating\\RatingServiceProvider"
+                "ManuelOjeda\\RatingServiceProvider"
             ]
         }
     },
