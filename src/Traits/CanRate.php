@@ -2,11 +2,11 @@
 
 namespace ManuelOjeda\Traits;
 
+use Illuminate\Database\Eloquent\Model;
+use ManuelOjeda\Contracts\Rateable;
 use ManuelOjeda\Events\ModelRated;
 use ManuelOjeda\Events\ModelUnrated;
 use ManuelOjeda\Exceptions\InvalidScore;
-use Illuminate\Database\Eloquent\Model;
-use ManuelOjeda\Contracts\Rateable;
 
 trait CanRate
 {
@@ -48,7 +48,7 @@ trait CanRate
         $this->ratings($model)->attach($model->getKey(), [
             'score' => $score,
             'comments' => $comments,
-            'rateable_type' => get_class($model)
+            'rateable_type' => get_class($model),
         ]);
 
         event(new ModelRated($this, $model, $score));
@@ -58,7 +58,7 @@ trait CanRate
 
     public function unrate(Model $model): bool
     {
-        if (!$this->hasRated($model)) {
+        if (! $this->hasRated($model)) {
             return false;
         }
 
