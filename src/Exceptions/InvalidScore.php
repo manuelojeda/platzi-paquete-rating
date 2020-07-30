@@ -15,14 +15,14 @@ class InvalidScore extends Exception
         $this->to = $to;
     }
 
-    public function render ()
+    public function render()
     {
         return response()->json(
             [
                 'score' => trans('rating.invalidScore', [
                     'from' => $this->from,
                     'to' => $this->to,
-                ])
+                ]),
             ]
         );
     }

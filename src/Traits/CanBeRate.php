@@ -2,7 +2,6 @@
 
 namespace ManuelOjeda\Traits;
 
-use ManuelOjeda\Models\Rating;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 trait CanBeRate
